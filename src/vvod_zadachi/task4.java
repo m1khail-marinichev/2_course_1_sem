@@ -2,12 +2,15 @@ package vvod_zadachi;
 
 public class task4 {
     public static void main(String[] args) {
-        int x = 2013;
-        if (x % 4 == 0) {
-            System.out.println("Год високосный");
-        }
-        else {
-            System.out.println("Год не високосный");
-        }
+        System.out.println(isLeapYear(1704));
+    }
+    public static boolean isLeapYear(int a) {
+        if (a % 400 == 0)
+            return true;
+        else if (a % 100 == 0)
+            return false;
+        else if (a % 4 == 0)
+            return true;
+        return false;
     }
 }

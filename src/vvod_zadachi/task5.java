@@ -2,18 +2,35 @@ package vvod_zadachi;
 
 public class task5 {
     public static void main(String[] args) {
-        int x = 351;
-        if ((20 >= (x % 100)) && ((x % 100) >= 11)) {
-            System.out.println(x + " котов");
+        System.out.println(cat(-517));
+        System.out.println(pr(-546));
+    }
+    public static String cat(int a) {
+        if (a > 0) {
+            if ((20 >= (a % 100)) && ((a % 100) >= 11)) {
+                return a + " котов";
+            } else if ((a % 10 >= 5) || (a % 10 == 0)) {
+                return a + " котов";
+            } else if ((4 >= a % 10) && ((a % 10) >= 2)) {
+                return a + " кота";
+            } else if (a % 10 == 1) {
+                return a + " кот";
+            }
         }
-        else if ((x % 10 >= 5) || (x % 10 == 0)) {
-            System.out.println(x + " котов");
+        else if (a < 0) {
+            if ((-11 >= (a % 100)) && ((a % 100) >= -20)) {
+                return a + " котов";
+            } else if ((a % 10 <= -5) || (a % 10 == 0)) {
+                return a + " котов";
+            } else if ((-2 >= a % 10) && ((a % 10) >= -4)) {
+                return a + " кота";
+            } else if (a % 10 == -1) {
+                return a + " кот";
+            }
         }
-        else if ((4 >= x % 10) && ((x % 10) >= 2)) {
-            System.out.println(x + " кота");
-        }
-        else if (x % 10 == 1) {
-            System.out.println(x + " кот");
-        }
+        return null;
+    }
+    public static int pr(int a){
+        return -a % 10;
     }
 }
