@@ -2,29 +2,33 @@ import java.util.Arrays;
 
 public class  ArraysTasks {
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(Even(6)));
-        int[] allSimilar_massiv = {2, 2, 2};
-        System.out.println(allSimilar(allSimilar_massiv));
-        int[] hasSimilar_massiv = {2, 2, 3};
-        System.out.println(hasSimilar(hasSimilar_massiv));
-        int[] mean_massiv = {2, 654, 2, 3};
-        System.out.println(Mean(mean_massiv));
-        int[] shift_massiv = {10, 20, 30, 40, 50, 60, 70, 80};
-        Shift(shift_massiv);
-        int[] copyShift_massiv = {10, 20, 30, 40, 50, 60, 70, 80, 90};
-        System.out.println(Arrays.toString(copyShift(copyShift_massiv)));
+        //System.out.println(Arrays.toString(Even(6)));
+        //System.out.println(allSimilar(new int[] {2}));
+        //System.out.println(hasSimilar(new int[] {2, 2, 3}));
+        //System.out.println(Mean(new int[] {2, 654, 2, 3}));
+        Shift(new int[] {10, 20, 30, 40, 50, 60, 70, 80});
+        System.out.println(Arrays.toString(copyShift(new int[] {10, 20, 30, 40, 50, 60, 70, 80, 90})));
+        //System.out.println(re(new int[] {}));
     }
     private static int[] Even(int n) {
-        int[] a = new int[n];
-        int x = 1;
-        for (int i = 0; i < n; i++) {
-            a[i] = x * 2;
-            x++;
+        if (n < 0) {
+            int[] a = {};
+            return a;
         }
-        return a;
+        else {
+            int[] a = new int[n];
+            int x = 1;
+            for (int i = 0; i < n; i++) {
+                a[i] = x * 2;
+                x++;
+            }
+            return a;
+        }
     }
 
     private static boolean allSimilar(int[] a) {
+        if (a.length == 0)
+            return false;
         if (a.length < 2)
             return true;
         for (int i : a)
@@ -34,7 +38,6 @@ public class  ArraysTasks {
     }
 
     private static boolean hasSimilar(int[] a) {
-        int flag = 1;
         for (int i = 0; i < a.length - 1; i++)
             for (int j = i + 1; j < a.length; j++)
                 if (a[i] == a[j])
@@ -49,21 +52,30 @@ public class  ArraysTasks {
         return sum / a.length;
     }
 
-    private static void Shift(int[] a) { //{10, 20, 30, 40, 50, 60, 70, 80}
-        for (int i = 0; i < a.length / 2; i++) {
-            int b = a[i];
-            a[i] = a[a.length - i - 1];
-            a[a.length - i - 1] = b;
+    private static void Shift(int[] a) {
+        if (a.length == 0)
+            System.out.println(Arrays.toString(a));
+        else {
+            int b = a[a.length - 1];
+            for (int i = a.length - 1; i > 0; i--) {
+                a[i] = a[i-1];
+            }
+            a[0] = b;
+            System.out.println(Arrays.toString(a));
         }
-        System.out.println(Arrays.toString(a));
     }
 
     private static int[] copyShift(int[] a) {
-        int[] new_a = new int[a.length];
-        new_a[a.length - 1] = a[0];
-        for (int i = a.length - 1; i > 0; i--) {
-            new_a[a.length - i - 1] = a[i];
+        if (a.length == 0)
+            return a;
+        else {
+            int[] new_a = new int[a.length];
+            int b = a[a.length - 1];
+            for (int i = a.length - 1; i > 0; i--) {
+                new_a[i] = a[i-1];
+            }
+            new_a[0] = b;
+            return new_a;
         }
-        return new_a;
     }
 }

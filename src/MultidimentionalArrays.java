@@ -2,16 +2,13 @@ import java.util.Arrays;
 
 public class MultidimentionalArrays {
     public static void main(String[] args) {
-        int[][] printTable_massiv = new int[][]{{10, 20, 30}, {40, 50, 60, 70}, {100, 200}};
-        printTable(printTable_massiv);
-        int[][] printTablealigned_massiv = new int[][]{{10, 2, 305677}, {40, 60546, 700}, {10047, 20, 8678}};
-        printTableAligned(printTablealigned_massiv);
+        printTable(new int[][]{{10, 20, 30}, {40, 50, 60, 70}, {100, 200}});
+        printTableAligned(new int[][]{{10, 2, 305677}, {40, 60546, 700}, {10047, 20, 8678}});
     }
 
     private static void printTable(int[][] a) {
-        for (int i = 0; i < a.length; i++) {
+        for (int i = 0; i < a.length; i++)
             System.out.println(Arrays.toString(a[i]));
-        }
     }
 
     private static void printTableAligned(int[][] a) {
