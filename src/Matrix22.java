@@ -103,10 +103,10 @@ public class Matrix22 {
     public Matrix22 mul(Matrix22 b) {
         double[][] matrix = this.get();
         double[][] result = new double[2][2];
-        result[0][0] = matrix[0][0] * b.a;
-        result[0][1] = matrix[0][1] * b.b;
-        result[1][0] = matrix[1][0] * b.c;
-        result[1][1] = matrix[1][1] * b.d;
+        result[0][0] = matrix[0][0] * b.a + result[0][1] * b.c;
+        result[0][1] = matrix[0][0] * b.b + result[0][1] * b.d;
+        result[1][0] = matrix[1][0] * b.a + result[1][1] * b.c;
+        result[1][1] = matrix[1][0] * b.b + result[1][1] * b.d;
         Matrix22 matr = new Matrix22(result[0][0], result[0][1], result[1][0], result[1][1]);
         return matr;
     }
